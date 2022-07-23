@@ -35,11 +35,6 @@ const questions = () => {
         },
         {
             type: "input",
-            name: "Table of Contents",
-            message: "Table of Contents y/n"
-        },
-        {
-            type: "input",
             name: "installation",
             message: "What does a user need installed in order to run this file?"
         },
@@ -66,7 +61,7 @@ const questions = () => {
         },
         {
             type: "input",
-            name: "gitHub",
+            name: "github",
             message: "Please enter your GitHub username. (Required)",
             validate: githubName => {
                 if (githubName) {
@@ -82,13 +77,11 @@ const questions = () => {
             name: "email",
             message: "Please enter your e-mail address."
         },
-        {
-            type: "input",
-            name: "questions",
-            // add link to GitHub profile
-            // add e-mail with instructions on how to contact
-            message: "",
-        }
+        // {
+        //     type: "input",
+        //     name: "owner",
+        //     message: "GitHub account: Boywondr84. E-mail: gitworkcoding22@gmail.com"
+        // }
     ])
         .then((readMeData) => {
             // console.log(readMeData.title);
