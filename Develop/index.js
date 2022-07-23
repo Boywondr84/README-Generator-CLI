@@ -2,6 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
 const generateMarkdown = require('./utils/generateMarkdown');
+const {renderLicenseBadge, renderLicenseLink, renderLicenseSection} = require('./utils/generateMarkdown');
 // TODO: Include packages needed for this application
 
 // TODO: Create an array of questions for user input
@@ -77,11 +78,6 @@ const questions = () => {
             name: "email",
             message: "Please enter your e-mail address."
         },
-        // {
-        //     type: "input",
-        //     name: "owner",
-        //     message: "GitHub account: Boywondr84. E-mail: gitworkcoding22@gmail.com"
-        // }
     ])
         .then((readMeData) => {
             // console.log(readMeData.title);
