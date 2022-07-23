@@ -1,4 +1,7 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
+const path = require("path");
+const generateMarkdown = require('./utils/generateMarkdown');
 // TODO: Include packages needed for this application
 
 // TODO: Create an array of questions for user input
@@ -6,7 +9,7 @@ const questions = () => {
     return inquirer.prompt([
         {
             type: "input",
-            name: "* Title",
+            name: "title",
             message: "What is the name of your project? (Required)",
             validate: projectName => {
                 if (projectName) {
@@ -19,7 +22,7 @@ const questions = () => {
         },
         {
             type: "input",
-            name: "** Description",
+            name: "description",
             message: "Please provide a short description of your project. (Required)",
             validate: projectDescription => {
                 if (projectDescription) {
@@ -29,23 +32,41 @@ const questions = () => {
                     return false;
                 }
             }
-
-        },
-        {
-            type: "checkbox",
-            name: "** Table of Contents",
-            message: "Select from the list which sections to be added.",
-            choices: ['Installation', 'Usage', 'Tests', 'Contributions']
-        },
-        {
-            type: "checkbox",
-            name: "** License",
-            message: "Add a license to your project from the list below.",
-            choices: ['Apache License 2.0', 'MIT License', 'BSD 2-Clause License', 'GNU General Public License', 'Mozilla Public License 2.0', 'The Unlicense']
         },
         {
             type: "input",
-            name: "GitHub username",
+            name: "Table of Contents",
+            message: "Table of Contents y/n"
+        },
+        {
+            type: "input",
+            name: "installation",
+            message: "What does a user need installed in order to run this file?"
+        },
+        {
+            type: "input",
+            name: "usage",
+            message: "Provide instructions on how to use this README generator."
+        },
+        {  
+            type: "input",
+            name: "tests",
+            message: "Provide testing procedures."
+        },
+        {
+            type: "input",
+            name: "contributions",
+            message: "List contributors"
+        },
+        {
+            type: "checkbox",
+            name: "license",
+            message: "Add a license to your project from the list below.",
+            choices: ['Apache 2.0', 'MIT', 'BSD 2-Clause', 'GNU General Public License', 'Mozilla Public License 2.0', 'The Unlicense', 'none']
+        },
+        {
+            type: "input",
+            name: "gitHub",
             message: "Please enter your GitHub username. (Required)",
             validate: githubName => {
                 if (githubName) {
@@ -63,31 +84,49 @@ const questions = () => {
         },
         {
             type: "input",
-            name: "** Questions",
+            name: "questions",
             // add link to GitHub profile
             // add e-mail with instructions on how to contact
             message: "",
         }
     ])
-        .then((answers) => {
-            console.log(answers);
+        .then((readMeData) => {
+            // console.log(readMeData.title);
+            // console.log(readMeData.description);
+            // console.log(readMeData.toc);
+            // console.log(readMeData.license);
+            return readMeData;
         })
         .catch((error) => {
-            if (error) {
-                return true;
-            } else {
-
-            }
+            console.log(error);
         })
-};
+    };
+
+questions()
+    .then(readMeData => {
+        return writeToFile("README.md", generateMarkdown(readMeData));
+    });
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
-
+function writeToFile(fileName, data) { 
+    fs.writeFileSync(path.join(process.cwd(),fileName), data, function(err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Success");
+        }
+    })
+};
 // TODO: Create a function to initialize app
 function init() { }
 
 // Function call to initialize app
 init();
 
-questions();
+    // .then(readmeData => {
+    //     const pageREADME = generateMarkdown(readmeData);
+        
+        // fs.writeToFile('./readme.md', pageREADME, err => {
+        // if (err) throw new Error (err);
+        // })
+    // }
