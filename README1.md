@@ -9,7 +9,7 @@ To build a command line interface that would take user responses to questions ab
 - Node.js
 
 # Screenshot:
-<img src = "./README Generator CLI\screenshot.png" />
+<img src=".\README Generator CLI\screenshot.png"></img>
 
 Contributions:
 Ryan Kahlbaugh
