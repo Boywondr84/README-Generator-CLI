@@ -49,7 +49,7 @@ const generateMarkdown = (data) => {
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
-* [Contributing](#contributing)
+* [Contributions](#contributions)
 * [Tests](#tests)
 * [Questions](#questions)
   # Installation

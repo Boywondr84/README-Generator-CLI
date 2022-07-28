@@ -1,37 +1,37 @@
 
   # Title
-  f
+  Weather App
 
   # License Link
-  (https://opensource.org/licenses/Eclipse Public License)
+  (https://opensource.org/licenses/MIT)
 
 
   # Description
-  f
+  User enters a city name. Current weather along with a 5 day forecast are then displayed.
 
   ## Table of Contents 
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
-* [Contributing](#contributing)
+* [Contributions](#contributions)
 * [Tests](#tests)
 * [Questions](#questions)
   # Installation
-  f
+  For the weather app, just a browser. For this README Generator, node.js and inquirer will need to be installed.
 
   # Usage
-  
+  run node index.js and then answer the questions.
   
   # License
-  Eclipse Public License
-  (https://img.shields.io/badge/License-Eclipse Public License-blue.svg)
+  MIT
+  (https://img.shields.io/badge/License-MIT-blue.svg)
 
   # Contributions
-  
+  Ryan K
   
   # Tests
-  
+  n/a
   
   # Questions
-  Have a question? Contact me on GitHub at a.href = "https://github.com/Boywond4" or by e-mail at .
+  Have a question? Contact me on GitHub at a.href = "https://github.com/Boywondr84" or by e-mail at ryan@email.com.
   
