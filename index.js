@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
 const generateMarkdown = require('./utils/generateMarkdown');
-const {renderLicenseBadge, renderLicenseLink, renderLicenseSection} = require('./utils/generateMarkdown');
+const { renderLicenseBadge, renderLicenseLink, renderLicenseSection } = require('./utils/generateMarkdown');
 // TODO: Include packages needed for this application
 
 // TODO: Create an array of questions for user input
@@ -44,7 +44,7 @@ const questions = () => {
             name: "usage",
             message: "Provide instructions on how to use this README generator."
         },
-        {  
+        {
             type: "input",
             name: "tests",
             message: "Provide testing procedures."
@@ -58,7 +58,7 @@ const questions = () => {
             type: "checkbox",
             name: "license",
             message: "Add a license to your project from the list below.",
-            choices: ['Apache 2.0', 'MIT', 'BSD 2-Clause', 'GNU General Public License', 'Mozilla Public License 2.0', 'The Unlicense', 'none']
+            choices: ['Apache-2.0', 'MIT', 'Eclipse Public License', 'none'],
         },
         {
             type: "input",
@@ -80,16 +80,12 @@ const questions = () => {
         },
     ])
         .then((readMeData) => {
-            // console.log(readMeData.title);
-            // console.log(readMeData.description);
-            // console.log(readMeData.toc);
-            // console.log(readMeData.license);
             return readMeData;
         })
         .catch((error) => {
             console.log(error);
         })
-    };
+};
 
 questions()
     .then(readMeData => {
@@ -97,8 +93,8 @@ questions()
     });
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { 
-    fs.writeFileSync(path.join(process.cwd(),fileName), data, function(err) {
+function writeToFile(fileName, data) {
+    fs.writeFileSync(path.join(process.cwd(), fileName), data, function (err) {
         if (err) {
             console.log(err);
         } else {
@@ -111,11 +107,3 @@ function init() { }
 
 // Function call to initialize app
 init();
-
-    // .then(readmeData => {
-    //     const pageREADME = generateMarkdown(readmeData);
-        
-        // fs.writeToFile('./readme.md', pageREADME, err => {
-        // if (err) throw new Error (err);
-        // })
-    // }

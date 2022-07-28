@@ -25,7 +25,7 @@ function renderLicenseSection(license) {
   if (!license) {
     return "";
   } else {
-    return;
+    return `* [License Link](#license-link)`;
   }
 };
 
@@ -37,6 +37,10 @@ const generateMarkdown = (data) => {
   return `
   # Title
   ${data.title}
+
+  # License Link
+  (https://opensource.org/licenses/${data.license})
+
 
   # Description
   ${data.description}
@@ -65,7 +69,7 @@ const generateMarkdown = (data) => {
   ${data.tests}
   
   # Questions
-  Have a question? Contact me on GitHub at ${data.github} or by e-mail at ${data.email}.
+  Have a question? Contact me on GitHub at a.href = "https://github.com/${data.github}" or by e-mail at ${data.email}.
   `;
 };
 
