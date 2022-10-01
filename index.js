@@ -3,7 +3,6 @@ const fs = require("fs");
 const path = require("path");
 const generateMarkdown = require('./utils/generateMarkdown');
 const { renderLicenseBadge, renderLicenseLink, renderLicenseSection } = require('./utils/generateMarkdown');
-// TODO: Include packages needed for this application
 
 
 const questions = () => {
