@@ -89,7 +89,7 @@ const questions = () => {
 
 questions()
     .then(readMeData => {
-        return writeToFile("README.md", generateMarkdown(readMeData));
+        return writeToFile("README-generated.md", generateMarkdown(readMeData));
     });
 
 // TODO: Create a function to write README file
