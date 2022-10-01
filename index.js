@@ -5,7 +5,7 @@ const generateMarkdown = require('./utils/generateMarkdown');
 const { renderLicenseBadge, renderLicenseLink, renderLicenseSection } = require('./utils/generateMarkdown');
 // TODO: Include packages needed for this application
 
-// TODO: Create an array of questions for user input
+
 const questions = () => {
     return inquirer.prompt([
         {
@@ -92,7 +92,7 @@ questions()
         return writeToFile("README-generated.md", generateMarkdown(readMeData));
     });
 
-// TODO: Create a function to write README file
+
 function writeToFile(fileName, data) {
     fs.writeFileSync(path.join(process.cwd(), fileName), data, function (err) {
         if (err) {
@@ -102,8 +102,7 @@ function writeToFile(fileName, data) {
         }
     })
 };
-// TODO: Create a function to initialize app
+
 function init() { }
 
-// Function call to initialize app
 init();
